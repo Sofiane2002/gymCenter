@@ -1,0 +1,41 @@
+<html>
+<head>
+<meta charset='utf-8'>
+<style>
+  #mld .relation { font-variant: small-caps; font-weight: bold }
+  #mld .primary { text-decoration: underline }
+  #mld .foreign { font-style: oblique }
+  #mld .normal { }
+</style>
+</head>
+<body>
+<div id='mld'>
+<div>
+  <span class='relation'>MEMBERS</span> (
+    <span class='primary'>first_name</span>,
+    <span class='normal'>last_name</span>,
+    <span class='normal'>date_of_birth</span>
+  )
+</div>
+<div>
+  <span class='relation'>COACHS</span> (
+    <span class='primary'>name_coach</span>,
+    <span class='normal'>speciality</span>,
+    <span class='foreign'>name</span>
+  )
+</div>
+<div>
+  <span class='relation'>PRACTICE</span> (
+    <span class='foreign primary'>first_name</span>,
+    <span class='foreign primary'>name</span>
+  )
+</div>
+<div>
+  <span class='relation'>ACTIVITIES</span> (
+    <span class='primary'>name</span>,
+    <span class='normal'>type</span>
+  )
+</div>
+</div>
+</body>
+</html>

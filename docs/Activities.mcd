@@ -1,0 +1,7 @@
+MEMBERS : first_name, last_name, date_of_birth
+:
+COACHES : name_coach, speciality
+
+PRACTICE, 1N MEMBERS, 1N ACTIVITIES 
+ACTIVITIES : name, type
+TEACH, 11 COACHES, 1N ACTIVITIES 

@@ -1,0 +1,8 @@
+BEGIN;
+
+ALTER TABLE "coaches" ALTER COLUMN "pseudo" SET NOT NULL;
+ALTER TABLE "coaches" ALTER COLUMN "email" SET NOT NULL;
+ALTER TABLE "coaches" ALTER COLUMN "password" SET NOT NULL;
+
+
+COMMIT
