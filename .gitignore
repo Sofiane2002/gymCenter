@@ -1,2 +1,5 @@
 /node_modules
 .env
+
+#Exception for dev.env
+!app/dev.env 
