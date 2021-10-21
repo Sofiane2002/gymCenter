@@ -1,0 +1,47 @@
+version: '3'
+services:
+
+  app:
+    env_file:
+      - ./app/dev.env
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+    ports:
+      - "3000:3000"
+    networks:
+      - gymcenter-network
+
+  postgres:
+    image: postgres:10.16
+    container_name: 'postgres'
+    depends_on:
+      - adminer
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+      POSTGRES_USER: "sofiane"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: "gymcenter"
+    volumes:
+      - pgsql-volume-container:/var/lib/postgresql/data
+      - ./data/db.sql:/docker-entrypoint-initdb.d/db.sql
+    ports:
+      - 5432:5432
+    networks:
+      - gymcenter-network
+
+  adminer:
+    image: adminer:latest
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+    ports:
+      - 8080:8080
+    networks:
+      - gymcenter-network
+
+networks:
+  gymcenter-network:
+volumes:
+  pgsql-volume-container:
